@@ -2,105 +2,104 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <title>Input Product</title>
-    {% load static %}
-    <link href="{% static 'css/styles.css' %}" rel="stylesheet" type />
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+   <meta name="description" content="" />
+   <meta name="author" content="" />
+   <title>Input Product</title>
+   {% load static %}
+   <link href="{% static 'css/styles.css' %}" rel="stylesheet" type />
 </head>
 
 <body>
-    <div class="d-flex" id="wrapper">
-        <!-- Sidebar-->
-        <div class="border-end bg-white" id="sidebar-wrapper">
-            <div class="sidebar-heading border-bottom bg-light">Start Bootstrap</div>
-            <div class="list-group list-group-flush">
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Dashboard</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">List</a>
+   <div class="d-flex" id="wrapper">
+      <!-- Sidebar-->
+      <div class="border-end bg-white" id="sidebar-wrapper">
+         <div class="sidebar-heading border-bottom bg-light">Start Bootstrap</div>
+         <div class="list-group list-group-flush">
+            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Dashboard</a>
+            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">List</a>
+         </div>
+      </div>
+      <!-- Page content wrapper-->
+      <div id="page-content-wrapper">
+         <!-- Top navigation-->
+         <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+            <div class="container-fluid">
+               <button class="btn btn-primary" id="sidebarToggle">Toggle Menu</button>
+               <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                  aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+               <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                     <li class="nav-item active"><a class="nav-link" href="#!">Home</a></li>
+                     <li class="nav-item"><a class="nav-link" href="#!">Link</a></li>
+                     <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
+                           data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                           <a class="dropdown-item" href="#!">Action</a>
+                           <a class="dropdown-item" href="#!">Another action</a>
+                           <div class="dropdown-divider"></div>
+                           <a class="dropdown-item" href="#!">Something else here</a>
+                        </div>
+                     </li>
+                  </ul>
+               </div>
             </div>
-        </div>
-        <!-- Page content wrapper-->
-        <div id="page-content-wrapper">
-            <!-- Top navigation-->
-            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-                <div class="container-fluid">
-                    <button class="btn btn-primary" id="sidebarToggle">Toggle Menu</button>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation"><span
-                            class="navbar-toggler-icon"></span></button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
-                            <li class="nav-item active"><a class="nav-link" href="#!">Home</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#!">Link</a></li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
-                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="#!">Action</a>
-                                    <a class="dropdown-item" href="#!">Another action</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#!">Something else here</a>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-            <!-- Page content-->
+         </nav>
+         <!-- Page content-->
 
-            <div class="container">
-                <h2>Add Product</h2>
-                {% if messages %}
-                <ul class="messages">
-                    {% for message in messages %}
-                    <div class="alert alert-primary" role="alert">
-                        {{ message }}
-                    </div>
-                    {% endfor %}
-                </ul>
-                {% endif %}
+         <div class="container">
+            <h2>Add Product</h2>
+            {% if messages %}
+            <ul class="messages">
+               {% for message in messages %}
+               <div class="alert alert-primary" role="alert">
+                  {{ message }}
+               </div>
+               {% endfor %}
+            </ul>
+            {% endif %}
 
-                <form action={% url "update" InputProduct.id %} method="POST">
-                    {% csrf_token %}
-                    <div class="form-group" style="margin: 10px 0px 10px 0px;">
-                        <label for="exampleInputEmail1" style="margin: 0px 0px 5px 0px;">Product name</label>
-                        <input type="text" class="form-control" id="emp_email" name="productname" value="{{ product_list.productname }}"
-                            placeholder="Product name">
-                    </div>
+            <form action={% url "update" InputProduct.id %} method="POST">
+               {% csrf_token %}
+               <div class="form-group" style="margin: 10px 0px 10px 0px;">
+                  <label for="exampleInputEmail1" style="margin: 0px 0px 5px 0px;">Product name</label>
+                  <input type="text" class="form-control" id="emp_email" name="productname"
+                     value="{{ InputProduct.productname }}" placeholder="Product name">
+               </div>
 
-                    <div class="form-group" style="margin: 10px 0px 10px 0px;">
-                        <label for="exampleInputPassword1" style="margin: 0px 0px 5px 0px;">Product Description</label>
-                        <textarea name="productdescription" class="form-control" name="" id="" cols="30"
-                        value="{{ product_list.productdescription}}" rows="10"></textarea>
-                    </div>
+               <div class="form-group" style="margin: 10px 0px 10px 0px;">
+                  <label for="exampleInputPassword1" style="margin: 0px 0px 5px 0px;">Product Description</label>
+                  <textarea name="productdescription" class="form-control" name="" id="" cols="30"
+                     value="{{ InputProduct.productdescription}}" rows="10"></textarea>
+               </div>
 
-                    <div class="form-group" style="margin: 10px 0px 10px 0px;">
-                        <label for="exampleInputPassword1" style="margin: 0px 0px 5px 0px;">Product Category</label>
-                        <input type="text" class="form-control" id="emp_name" name="productcategory"
-                        value="{{ product_list.productcategory}}" placeholder="Product Category">
-                    </div>
+               <div class="form-group" style="margin: 10px 0px 10px 0px;">
+                  <label for="exampleInputPassword1" style="margin: 0px 0px 5px 0px;">Product Category</label>
+                  <input type="text" class="form-control" id="emp_name" name="productcategory"
+                     value="{{ InputProduct.productcategory}}" placeholder="Product Category">
+               </div>
 
-                    <div class="form-group" style="margin: 10px 0px 10px 0px;">
-                        <label for="exampleInputPassword1" style="margin: 0px 0px 5px 0px;">Product Stock</label>
-                        <input type="text" class="form-control" id="emp_mobile" name="productstock" value="{{ product_list.productstock }}"
-                            placeholder="Product Stock">
-                    </div>
+               <div class="form-group" style="margin: 10px 0px 10px 0px;">
+                  <label for="exampleInputPassword1" style="margin: 0px 0px 5px 0px;">Product Stock</label>
+                  <input type="text" class="form-control" id="emp_mobile" name="productstock"
+                     value="{{ InputProduct.productstock }}" placeholder="Product Stock">
+               </div>
 
-                    <button type="submit" class="btn btn-primary">Update Product</button>
-                </form>
-            </div>
-        </div>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Core theme JS-->
-    <script src="{% static 'js/scripts.js' %}"></script>
+               <button type="submit" class="btn btn-primary">Update Product</button>
+            </form>
+         </div>
+      </div>
+   </div>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"></script>
+   <!-- Bootstrap core JS-->
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+   <!-- Core theme JS-->
+   <script src="{% static 'js/scripts.js' %}"></script>
 </body>
 
 </html>
